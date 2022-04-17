@@ -1,14 +1,10 @@
 import React from "react";
-import AppBar from "../uiTools/ResponsiveAppBar";
+import Layout from "../uiTools/Layout";
 
 const LandingLayout = (props) => {
   return (
     <>
-      <AppBar />
-      <>
-        <div style={{ marginTop: "60px" }}>{props.children}</div>
-      </>
-      
+      <Layout>{props.children}</Layout>
     </>
   );
 };
