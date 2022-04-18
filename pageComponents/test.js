@@ -8,11 +8,11 @@ import StandardRegion from "../components/regions/Standard";
 const test = () => {
   return (
     <>
-      {/* <PageHeader 
+      <PageHeader 
         title="This is Page Header"
         subTitle = "This is Sub-Title"
         icon = {<AccountBalanceIcon />}
-      /> */}
+      />
       <Box
         sx={{
           display: "flex",
@@ -23,7 +23,7 @@ const test = () => {
           },
         }}
       >
-        <StandardRegion />
+        {/* <StandardRegion /> */}
       </Box>
     </>
   );

@@ -1,27 +1,25 @@
 import React from "react";
 import Paper from "@mui/material/Paper";
-import { CardContent } from "@mui/material";
-import { Box } from "@mui/system";
+import { createTheme } from "@mui/material/styles";
+import styled from "@emotion/styled";
+import Header from "../others/uiTools/Header";
+
+const theme = createTheme();
+
+const MuiPaper = styled(Paper)({
+  padding:theme.spacing(2),
+  marginBottom:theme.spacing(2)
+})
 
 const Standard = (props) => {
-  const { title } = props;
+  const {title} = props
   return (
-    <CardContent
-      style={{
-        backgroundColor: "#4971B1",
-        borderRadius: 5,
-        marginBottom: 15,
-        padding: 5,
-        color: "white",
-      }}
-    >
-      <Box
-        component="span"
-        sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-      >
-        hello
-      </Box>
-    </CardContent>
+    <MuiPaper elevation={3} >
+      <Header>
+        {title}
+      </Header>
+      {props.children}
+    </MuiPaper>
   );
 };
 
