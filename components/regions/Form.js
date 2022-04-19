@@ -1,50 +1,44 @@
+import styled from "@emotion/styled";
 import React, { useState } from "react";
+import { createTheme } from "@mui/material/styles";
 
-// export default function Form(initialValues) {
-//   const [values, setValues] = useState(initialValues);
+//--------- From Functionalities ---------- >>
 
-//   const handleInputchange = (e) => {
-//     const { name, value } = e.target;
-//     setValues({
-//       ...values,
-//       [name]: value,
-//     });
-//   };
-
-//   return {
-//     values,
-//     setValues,
-//     handleInputchange,
-//   };
-// }
-
-
-// export default function Form() {
-//   return (
-//     <div>Form</div>
-//   )
-// }
-
-import React from 'react'
-
-const useForm = (initialValues) => {
+export function formAction(initialValues) {
     const [values, setValues] = useState(initialValues);
 
-      const handleInputchange = (e) => {
-        const { name, value } = e.target;
-        setValues({
-          ...values,
-          [name]: value,
-        });
-      };
-    
-      return {
-        values,
-        setValues,
-        handleInputchange,
-      };
+    const handleInputchange = (e) => {
+      const { name, value } = e.target;
+      setValues({
+        ...values,
+        [name]: value,
+      });
+    };
+  
+    return {
+      values,
+      setValues,
+      handleInputchange,
+    };
 }
 
 
-export default useForm
+//---------- From Component -------------- >>
+
+const theme = createTheme();
+const FormComponent = styled("form")({
+  "& .MuiFormControl-root": {
+    width: "80%",
+    margin: theme.spacing(1),
+  },
+});
+
+export function Form(props) {
+    return(
+        <FormComponent>
+            {props.children}
+        </FormComponent>
+    )
+}
+
 

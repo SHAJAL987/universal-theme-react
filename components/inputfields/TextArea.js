@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Address = () => {
+const TextArea = () => {
   return (
     <div>Address</div>
   )
 }
 
-export default Address
+export default TextArea

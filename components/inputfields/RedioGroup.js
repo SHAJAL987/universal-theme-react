@@ -1,9 +1,28 @@
-import React from 'react'
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import React from "react";
 
-const RedioGroup = () => {
+const RedioGroup = (props) => {
+  const { name, label, value, onChange, items } = props;
   return (
-    <div>RedioGroup</div>
-  )
-}
+    <FormControl>
+      <FormLabel>{label}</FormLabel>
+      <RadioGroup row name={name} value={value} onChange={onChange}>
+        {items.map((item, index) => (
+          <FormControlLabel
+            value={item.id}
+            control={<Radio />}
+            label={item.title}
+          />
+        ))}
+      </RadioGroup>
+    </FormControl>
+  );
+};
 
-export default RedioGroup
+export default RedioGroup;

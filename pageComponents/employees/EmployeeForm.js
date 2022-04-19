@@ -1,17 +1,9 @@
-import styled from "@emotion/styled";
-import { Grid, TextField } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import React, { useState, useEffect } from "react";
-import MuiForm from "../../components/regions/useForm";
-
-const theme = createTheme();
-
-const Form = styled("form")({
-  "& .MuiFormControl-root": {
-    width: "80%",
-    margin: theme.spacing(1),
-  },
-});
+import {
+  Grid,
+} from "@mui/material";
+import React from "react";
+import { formAction, Form } from "../../components/regions/Form";
+import Controls from "../../components/inputfields/Controls";
 
 const initialValues = {
   id: 0,
@@ -25,14 +17,20 @@ const initialValues = {
   isPermanent: false,
 };
 
+const genderItems = [
+  { id: "male", title: "Male" },
+  { id: "female", title: "Female" },
+  { id: "others", title: "Others" },
+];
+
 const EmployeeForm = () => {
-  const { values, setValues, handleInputchange } = MuiForm(initialValues);
+  const { values, setValues, handleInputchange } = formAction(initialValues);
 
   return (
     <Form>
       <Grid container>
         <Grid item xs={6}>
-          <TextField
+          <Controls.TextField
             variant="outlined"
             label="Full Name"
             size="small"
@@ -40,7 +38,7 @@ const EmployeeForm = () => {
             value={values.fullName}
             onChange={handleInputchange}
           />
-          <TextField
+          <Controls.TextField
             variant="outlined"
             label="Email"
             size="small"
@@ -49,7 +47,15 @@ const EmployeeForm = () => {
             onChange={handleInputchange}
           />
         </Grid>
-        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          <Controls.RadioGroup
+            name="gender"
+            label="Gender"
+            value={values.gender}
+            onChange={handleInputchange}
+            items={genderItems}
+          />
+        </Grid>
       </Grid>
     </Form>
   );
