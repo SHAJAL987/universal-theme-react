@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { TextField } from "@mui/material";
 
-const TextArea = () => {
+const TextArea = (props) => {
+  const { name, label, size, variant, value, onChange } = props;
   return (
-    <div>Address</div>
-  )
-}
+    <TextField
+      variant={variant}
+      label={label}
+      multiline
+      size={size}
+      name={name}
+      value={value}
+      onChange={onChange}
+    />
+  );
+};
 
-export default TextArea
+export default TextArea;

@@ -10,6 +10,7 @@ import Hidden from './Hidden'
 import NumberField from './NumberField'
 import Password from './Password'
 import PopupLOV from './PopupLOV'
+import SelectList from './SelectList'
 
 const Controls = {
     TextField,
@@ -23,7 +24,8 @@ const Controls = {
     Hidden,
     NumberField,
     Password,
-    PopupLOV
+    PopupLOV,
+    SelectList
 }
 
 export default Controls

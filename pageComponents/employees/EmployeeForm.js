@@ -4,6 +4,7 @@ import {
 import React from "react";
 import { formAction, Form } from "../../components/regions/Form";
 import Controls from "../../components/inputfields/Controls";
+import * as employeeService from "../../pageCompServices/employees/employeeService"
 
 const initialValues = {
   id: 0,
@@ -16,12 +17,6 @@ const initialValues = {
   hideDate: new Date(),
   isPermanent: false,
 };
-
-const genderItems = [
-  { id: "male", title: "Male" },
-  { id: "female", title: "Female" },
-  { id: "others", title: "Others" },
-];
 
 const EmployeeForm = () => {
   const { values, setValues, handleInputchange } = formAction(initialValues);
@@ -50,11 +45,21 @@ const EmployeeForm = () => {
         <Grid item xs={6}>
           <Controls.RadioGroup
             name="gender"
-            label="Gender"
+            // label="Gender"
             value={values.gender}
             onChange={handleInputchange}
-            items={genderItems}
+            items={employeeService.genderItems()}
           />
+          <Controls.SelectList 
+            variant="outlined"
+            name="department"
+            label="Department"
+            size="small"
+            value={values.department}
+            onChange={handleInputchange}
+            option={employeeService.getDepartmentCollection()}
+          />
+          
         </Grid>
       </Grid>
     </Form>

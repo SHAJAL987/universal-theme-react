@@ -1,10 +1,31 @@
-import React from 'react'
+import {
+  MenuItem,
+  TextField,
+} from "@mui/material";
+import React from "react";
 
 const SelectList = (props) => {
-    const {name, label, value, onChange, option} = props
+  const { name, label, variant, value, onChange, option, size, helperText } =
+    props;
   return (
-    <div>SelectList</div>
-  )
-}
+    <TextField
+      select
+      variant={variant}
+      name={name}
+      label={label}
+      value={value}
+      onChange={onChange}
+      helperText={helperText}
+      size={size}
+    >
+      <MenuItem value="">-- Select --</MenuItem>
+      {option.map((item) => (
+        <MenuItem key={item.id} value={item.id}>
+          {item.title}
+        </MenuItem>
+      ))}
+    </TextField>
+  );
+};
 
-export default SelectList
+export default SelectList;
