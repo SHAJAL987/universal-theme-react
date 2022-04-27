@@ -8,11 +8,11 @@ import {
 import React from "react";
 
 const RedioGroup = (props) => {
-  const { name, label, value, onChange, items } = props;
+  const { name, label, value, onChange, items,...others } = props;
   return (
     <FormControl>
       <FormLabel>{label}</FormLabel>
-      <RadioGroup row name={name} value={value} onChange={onChange}>
+      <RadioGroup row name={name} value={value} onChange={onChange} {...others}>
         {items.map((item, index) => (
           <FormControlLabel
             value={item.id}

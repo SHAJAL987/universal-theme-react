@@ -6,6 +6,7 @@ import { createTheme } from "@mui/material/styles";
 
 export function formAction(initialValues) {
     const [values, setValues] = useState(initialValues);
+    const [errors, setErrors] = useState({});
 
     const handleInputchange = (e) => {
       const { name, value } = e.target;
@@ -18,6 +19,8 @@ export function formAction(initialValues) {
     return {
       values,
       setValues,
+      errors,
+      setErrors,
       handleInputchange,
     };
 }
@@ -34,8 +37,9 @@ const FormComponent = styled("form")({
 });
 
 export function Form(props) {
+    const {children, ...others} = props
     return(
-        <FormComponent>
+        <FormComponent autoComplete="off" {...others}>
             {props.children}
         </FormComponent>
     )

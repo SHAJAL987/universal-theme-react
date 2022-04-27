@@ -6,7 +6,6 @@ import styled from '@emotion/styled'
 const theme = createTheme();
 
 const MuiCardContent = styled(CardContent)({
-  
   backgroundColor: "#4971B1",
   borderRadius: 5,
   padding:5,

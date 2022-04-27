@@ -5,7 +5,7 @@ import {
 import React from "react";
 
 const SelectList = (props) => {
-  const { name, label, variant, value, onChange, option, size, helperText } =
+  const { name, label, variant, value, onChange, option, size, helperText,...others } =
     props;
   return (
     <TextField
@@ -17,6 +17,7 @@ const SelectList = (props) => {
       onChange={onChange}
       helperText={helperText}
       size={size}
+      {...others}
     >
       <MenuItem value="">-- Select --</MenuItem>
       {option.map((item) => (

@@ -1,9 +1,20 @@
-import React from 'react'
+import { Button } from "@mui/material";
+import React from "react";
 
-const primary = () => {
+const Primary = (props) => {
+  const { text, size, variant, onClick, direction, ...others } = props;
   return (
-    <div>primary</div>
-  )
-}
+    <Button
+      variant={variant || "contained"}
+      size={size || "large"}
+      color="primary"
+      onClick={onClick}
+      {...others}
+      sx={{margin:.5}}
+    >
+      {text}
+    </Button>
+  );
+};
 
-export default primary
+export default Primary;

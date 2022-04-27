@@ -1,8 +1,20 @@
+import { Button, Stack } from '@mui/material'
 import React from 'react'
 
-const Danger = () => {
+const Danger = (props) => {
+  const {text,size,variant,onClick,...others} = props
   return (
-    <div>Danger</div>
+    <Stack spacing={2} direction='row'>
+      <Button
+      variant={variant || "contained"}
+      size={size || "large"}
+      color="error"
+      onClick={onClick}
+      {...others}
+      >
+        {text}
+      </Button>
+    </Stack>
   )
 }
 
