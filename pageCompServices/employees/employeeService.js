@@ -1,3 +1,7 @@
+const KEYS = {
+    employees:'employees'
+}
+
 export const getDepartmentCollection = () => ([
     {id:'1', title:'Intern'},
     {id:'2', title:'Trainee Soft. Engineer'},

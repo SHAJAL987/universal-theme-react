@@ -8,11 +8,11 @@ const Employee = () => {
   return (
     <>
       <PageHeader
-        title="New Employee"
+        title="Universal Header"
         subTitle="From Design With Validation"
         icon={<AccountBalanceIcon />}
       />
-      <Standard title="Employees Region Header">
+      <Standard title="Universal Region Header">
         <EmployeeForm />
       </Standard>
     </>

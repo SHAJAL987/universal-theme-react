@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 
 //--------- From Functionalities ---------- >>
 
-export function formAction(initialValues) {
+export function formAction(initialValues, validationOnchage = false, validate) {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
 
@@ -14,7 +14,15 @@ export function formAction(initialValues) {
         ...values,
         [name]: value,
       });
+      if(validationOnchage){
+        validate({[name]:value})
+      }
     };
+
+    const clearForm = (e) =>{
+      setValues(initialValues)
+      setErrors({})
+    }
   
     return {
       values,
@@ -22,6 +30,7 @@ export function formAction(initialValues) {
       errors,
       setErrors,
       handleInputchange,
+      clearForm
     };
 }
 
