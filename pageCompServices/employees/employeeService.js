@@ -15,3 +15,16 @@ export const genderItems= () => ([
     { id: "female", title: "Female" },
     { id: "others", title: "Others" },
   ]);
+
+export function insertEmployee(data){
+    let employees = getAllEmployees();
+    employees.push(data);
+    localStorage.setItem(KEYS.employees.JSON.stringify());
+}
+
+export function getAllEmployees(){
+    if(localStorage.getItem(KEYS.employees) == null){
+        localStorage.setItem(KEYS.employees.JSON.stringify([]));
+    }
+    return JSON.parse(localStorage.getItem(KEYS.employees));
+}
