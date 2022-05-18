@@ -64,7 +64,7 @@ const EmployeeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      alert("Submit Process Called.....");
+      employeeService.insertEmployee(values);
     }
   };
 
