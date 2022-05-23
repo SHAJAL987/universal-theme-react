@@ -108,6 +108,8 @@ const EmployeeForm = () => {
             onChange={handleInputchange}
             error={errors.city}
           />
+          <Controls.Password 
+          />
         </Grid>
         <Grid item xs={6} md={6}>
           <Controls.RadioGroup
