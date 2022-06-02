@@ -6,11 +6,11 @@ import CheckboxGroup from './CheckboxGroup'
 import DatePicker from './DatePicker'
 import DisplayOnly from './DisplayOnly'
 import FileBrowse from './FileBrowse'
-import Hidden from './Hidden'
 import NumberField from './NumberField'
 import Password from './Password'
 import PopupLOV from './PopupLOV'
 import SelectList from './SelectList'
+import SearchedList from './SearchedList'
 
 const Controls = {
     TextField,
@@ -21,11 +21,11 @@ const Controls = {
     DatePicker,
     DisplayOnly,
     FileBrowse,
-    Hidden,
     NumberField,
     Password,
     PopupLOV,
-    SelectList
+    SelectList,
+    SearchedList
 }
 
 export default Controls

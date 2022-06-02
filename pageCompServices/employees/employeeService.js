@@ -18,6 +18,19 @@ export const genderItems= () => ([
     { id: "others", title: "Others" },
   ]);
 
+export const booldGroup=() =>(
+    [
+        {label:'A (+ve)',id:1},
+        {label:'A (-ve)',id:2},
+        {label:'B (+ve)',id:3},
+        {label:'B (-ve)',id:4},
+        {label:'AB (+ve)',id:5},
+        {label:'AB (-ve)',id:6},
+        {label:'O (+ve)',id:7},
+        {label:'O (-ve)',id:8},
+    ]
+)
+
 export function insertEmployee(data){
     let employees = getAllEmployees();
     data['id'] = generateEmployeeId();

@@ -16,7 +16,8 @@ const initialValues = {
   department: "",
   hideDate: new Date(),
   isPermanent: false,
-  password:""
+  password:"",
+  bloodgroup:""
 };
 
 const EmployeeForm = () => {
@@ -155,6 +156,15 @@ const EmployeeForm = () => {
             label="Permanent Employee"
             value={values.isPermanent}
             onChange={handleInputchange}
+          />
+          <Controls.SearchedList 
+          name="bloodgroup"
+          color="primary"
+          label="Blood Group"
+          size="small"
+          value={values.bloodgroup}
+          option={employeeService.booldGroup()}
+          onChange={handleInputchange}
           />
           <BtnControls.PrimaryButton
             variant="contained"
