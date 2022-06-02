@@ -22,15 +22,19 @@ const Password = (props) => {
     event.preventDefault();
   };
 
+
   const { name, label, size, variant, value, error=null, onChange, ...others } = props;
   return (
-    <FormControl variant={variant} size="small">
-      <InputLabel>Password</InputLabel>
+    <FormControl variant={variant} size={size}>
+      <InputLabel>{label}</InputLabel>
       <OutlinedInput 
         id="outlined-adornment-password"
         type={values.showPassword ? 'text' : 'password'}
-        value={values.password}
-        // onChange={handleChange('password')}
+        value={value}
+        {...(error && {error:true, helperText:error})}
+        {...others}
+        onChange={onChange}
+        name={name}
         endAdornment={
           <InputAdornment position="end">
             <IconButton
@@ -43,7 +47,7 @@ const Password = (props) => {
             </IconButton>
           </InputAdornment>
         }
-        label="Password"
+        label={label}
       />
     </FormControl>
   )

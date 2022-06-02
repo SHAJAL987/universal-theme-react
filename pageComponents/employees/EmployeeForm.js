@@ -16,6 +16,7 @@ const initialValues = {
   department: "",
   hideDate: new Date(),
   isPermanent: false,
+  password:""
 };
 
 const EmployeeForm = () => {
@@ -47,6 +48,9 @@ const EmployeeForm = () => {
       temp.department =
       fieldValues.department.length != 0 ? "" : "Deparment is Required.";
     }
+    if("password" in fieldValues){
+      temp.password = fieldValues.password.length != 0 ? "" : "Password is Required."
+    }
     setErrors({
       ...temp,
     });
@@ -65,6 +69,7 @@ const EmployeeForm = () => {
     e.preventDefault();
     if (validate()) {
       employeeService.insertEmployee(values);
+      console.log(values);
     }
   };
 
@@ -109,6 +114,13 @@ const EmployeeForm = () => {
             error={errors.city}
           />
           <Controls.Password 
+            variant="outlined"
+            label="Password"
+            size="small"
+            name="password"
+            value={values.password}
+            onChange={handleInputchange}
+            error={errors.password}
           />
         </Grid>
         <Grid item xs={6} md={6}>
