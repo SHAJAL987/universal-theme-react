@@ -15,6 +15,7 @@ const RedioGroup = (props) => {
       <RadioGroup row name={name} value={value} onChange={onChange} {...others}>
         {items.map((item, index) => (
           <FormControlLabel
+            key={item.id}
             value={item.id}
             control={<Radio />}
             label={item.title}

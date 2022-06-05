@@ -26,7 +26,7 @@ const Password = (props) => {
   const { name, label, size, variant, value, error=null, onChange, ...others } = props;
   return (
     <FormControl variant={variant} size={size}>
-      <InputLabel>{label}</InputLabel>
+      <InputLabel  {...(error && {error:true, helperText:error})} >{label}</InputLabel>
       <OutlinedInput 
         id="outlined-adornment-password"
         type={values.showPassword ? 'text' : 'password'}

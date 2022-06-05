@@ -52,6 +52,7 @@ const EmployeeForm = () => {
     if("password" in fieldValues){
       temp.password = fieldValues.password.length != 0 ? "" : "Password is Required."
     }
+ 
     setErrors({
       ...temp,
     });
