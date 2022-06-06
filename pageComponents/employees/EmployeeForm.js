@@ -16,8 +16,9 @@ const initialValues = {
   department: "",
   hideDate: new Date(),
   isPermanent: false,
-  password:"",
-  bloodgroup:""
+  password: "",
+  bloodgroup:"",
+  activeStatus: false,
 };
 
 const EmployeeForm = () => {
@@ -29,13 +30,14 @@ const EmployeeForm = () => {
     }
     if ("email" in fieldValues) {
       temp.email =
-      fieldValues.email.length === 0
+        fieldValues.email.length === 0
           ? "Email is Required."
-          : emailRegex.test(fieldValues.email) === false && "Email is Not Valid.";
+          : emailRegex.test(fieldValues.email) === false &&
+            "Email is Not Valid.";
     }
     if ("mobile" in fieldValues) {
       temp.mobile =
-      fieldValues.mobile.length === 0
+        fieldValues.mobile.length === 0
           ? "Mobile No. is Required."
           : fieldValues.mobile.length != 11
           ? "Mobile Number Should be 11 Digits."
@@ -47,12 +49,13 @@ const EmployeeForm = () => {
     }
     if ("department" in fieldValues) {
       temp.department =
-      fieldValues.department.length != 0 ? "" : "Deparment is Required.";
+        fieldValues.department.length != 0 ? "" : "Deparment is Required.";
     }
-    if("password" in fieldValues){
-      temp.password = fieldValues.password.length != 0 ? "" : "Password is Required."
+    if ("password" in fieldValues) {
+      temp.password =
+        fieldValues.password.length != 0 ? "" : "Password is Required.";
     }
- 
+
     setErrors({
       ...temp,
     });
@@ -115,7 +118,7 @@ const EmployeeForm = () => {
             onChange={handleInputchange}
             error={errors.city}
           />
-          <Controls.Password 
+          <Controls.Password
             variant="outlined"
             label="Password"
             size="small"
@@ -123,6 +126,15 @@ const EmployeeForm = () => {
             value={values.password}
             onChange={handleInputchange}
             error={errors.password}
+          />
+          <Controls.SearchedList 
+          name="bloodgroup"
+          color="primary"
+          label="Blood Group"
+          size="small"
+          value={values.bloodgroup}
+          option={employeeService.booldGroup()}
+          onChange={handleInputchange}
           />
         </Grid>
         <Grid item xs={6} md={6}>
@@ -158,14 +170,12 @@ const EmployeeForm = () => {
             value={values.isPermanent}
             onChange={handleInputchange}
           />
-          <Controls.SearchedList 
-          name="bloodgroup"
-          color="primary"
-          label="Blood Group"
-          size="small"
-          value={values.bloodgroup}
-          option={employeeService.booldGroup()}
-          onChange={handleInputchange}
+          <Controls.Switchbtn
+            name="activeStatus"
+            color="primary"
+            label="Active Status"
+            value={values.activeStatus}
+            onChange={handleInputchange}
           />
           <BtnControls.PrimaryButton
             variant="contained"

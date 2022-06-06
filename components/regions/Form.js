@@ -8,8 +8,10 @@ export function formAction(initialValues, validationOnchage = false, validate) {
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState({});
 
+    // -------- For Conventional Input Field
     const handleInputchange = (e) => {
       const { name, value } = e.target;
+
       setValues({
         ...values,
         [name]: value,

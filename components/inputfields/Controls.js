@@ -11,6 +11,7 @@ import Password from './Password'
 import PopupLOV from './PopupLOV'
 import SelectList from './SelectList'
 import SearchedList from './SearchedList'
+import Switchbtn from './Switchbtn'
 
 const Controls = {
     TextField,
@@ -25,7 +26,8 @@ const Controls = {
     Password,
     PopupLOV,
     SelectList,
-    SearchedList
+    SearchedList,
+    Switchbtn
 }
 
 export default Controls
