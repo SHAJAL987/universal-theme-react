@@ -1,5 +1,5 @@
 import { Autocomplete, TextField } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const SearchedList = (props) => {
   const {
@@ -13,25 +13,23 @@ const SearchedList = (props) => {
     size,
     ...others
   } = props;
+
   const convertToDefaultPara = (name, value) => ({
     target: {
       name,
       value,
     },
   });
+
   return (
     <Autocomplete
       disablePortal
-      id="combo-box-demo"
+      id="id"
       size={size}
-      //onChange={onChange}
-      onChange={(e) =>
-        onChange(convertToDefaultPara(name, e.target.value))
-      }
-      name={name}
-      value={value}
+      onChange={(e, value) => onChange(convertToDefaultPara(name, value))}
       options={option}
       renderInput={(params) => <TextField {...params} label={label} />}
+      getOptionLabel={(option) => `${option.label}`}
       {...others}
       {...(error && { error: true, helperText: error })}
     />

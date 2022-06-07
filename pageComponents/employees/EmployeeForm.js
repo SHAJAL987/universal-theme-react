@@ -17,7 +17,7 @@ const initialValues = {
   hideDate: new Date(),
   isPermanent: false,
   password: "",
-  bloodgroup:"",
+  bloodgroup:{},
   activeStatus: false,
 };
 
