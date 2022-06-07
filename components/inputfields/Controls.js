@@ -11,6 +11,7 @@ import Password from './Password'
 import PopupLOV from './PopupLOV'
 import SelectList from './SelectList'
 import SearchedList from './SearchedList'
+import SearchedListLimit from './SearchedListLimit'
 import Switchbtn from './Switchbtn'
 
 const Controls = {
@@ -27,6 +28,7 @@ const Controls = {
     PopupLOV,
     SelectList,
     SearchedList,
+    SearchedListLimit,
     Switchbtn
 }
 

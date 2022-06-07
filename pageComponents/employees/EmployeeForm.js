@@ -4,6 +4,7 @@ import { formAction, Form } from "../../components/regions/Form";
 import Controls from "../../components/inputfields/Controls";
 import BtnControls from "../../components/buttons/BtnControls";
 import * as employeeService from "../../pageCompServices/employees/employeeService";
+import CachedIcon from '@mui/icons-material/Cached';
 import { emailRegex, mobileRegex } from "../../utils/validation";
 
 const initialValues = {
@@ -18,6 +19,7 @@ const initialValues = {
   isPermanent: false,
   password: "",
   bloodgroup:{},
+  movieList:{},
   activeStatus: false,
 };
 
@@ -55,6 +57,10 @@ const EmployeeForm = () => {
       temp.password =
         fieldValues.password.length != 0 ? "" : "Password is Required.";
     }
+    // if ("bloodgroup" in fieldValues){
+    //   temp.bloodgroup =
+    //     fieldValues.bloodgroup.length != 0 ? "" : "Blood Group is Required.";
+    // }
 
     setErrors({
       ...temp,
@@ -177,6 +183,16 @@ const EmployeeForm = () => {
             value={values.activeStatus}
             onChange={handleInputchange}
           />
+          <Controls.SearchedListLimit
+          name="movieList"
+          color="primary"
+          label="Movie List"
+          size="small"
+          limit="3"
+          value={values.movieList}
+          option={employeeService.top100Films()}
+          onChange={handleInputchange}
+          />
           <BtnControls.PrimaryButton
             variant="contained"
             size="small"
@@ -184,11 +200,11 @@ const EmployeeForm = () => {
             type="submit"
             direction="row"
           />
-          <BtnControls.WarningButton
-            variant="contained"
+          <BtnControls.FloattingButton
+            variant="extended"
             size="small"
-            text="Clear"
-            direction="row"
+            text="Clear "
+            icon={<CachedIcon sx={{ mr: 1 }}/>}
             onClick={clearForm}
           />
         </Grid>

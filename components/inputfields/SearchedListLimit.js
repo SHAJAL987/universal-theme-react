@@ -1,7 +1,7 @@
 import { Autocomplete, TextField } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 
-const SearchedList = (props) => {
+const SearchedListLimit = (props) => {
   const {
     name,
     label,
@@ -9,6 +9,7 @@ const SearchedList = (props) => {
     value,
     onChange,
     option,
+    limit,
     error = null,
     size,
     ...others
@@ -23,8 +24,9 @@ const SearchedList = (props) => {
 
   return (
     <Autocomplete
-      disablePortal
-      id="id"
+      multiple
+      limitTags={limit}
+      id="multiple-limit-tags"
       size={size}
       onChange={(e, value) => onChange(convertToDefaultPara(name, value))}
       options={option}
@@ -40,4 +42,4 @@ const SearchedList = (props) => {
     />
   );
 };
-export default SearchedList;
+export default SearchedListLimit;
