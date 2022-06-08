@@ -4,8 +4,10 @@ import { formAction, Form } from "../../components/regions/Form";
 import Controls from "../../components/inputfields/Controls";
 import BtnControls from "../../components/buttons/BtnControls";
 import * as employeeService from "../../pageCompServices/employees/employeeService";
-import CachedIcon from '@mui/icons-material/Cached';
+import CachedIcon from "@mui/icons-material/Cached";
+import SaveIcon from "@mui/icons-material/Save";
 import { emailRegex, mobileRegex } from "../../utils/validation";
+import { Box } from "@mui/system";
 
 const initialValues = {
   id: 0,
@@ -18,8 +20,8 @@ const initialValues = {
   hideDate: new Date(),
   isPermanent: false,
   password: "",
-  bloodgroup:{},
-  movieList:{},
+  bloodgroup: {},
+  movieList: {},
   activeStatus: false,
 };
 
@@ -133,14 +135,14 @@ const EmployeeForm = () => {
             onChange={handleInputchange}
             error={errors.password}
           />
-          <Controls.SearchedList 
-          name="bloodgroup"
-          color="primary"
-          label="Blood Group"
-          size="small"
-          value={values.bloodgroup}
-          option={employeeService.booldGroup()}
-          onChange={handleInputchange}
+          <Controls.SearchedList
+            name="bloodgroup"
+            color="primary"
+            label="Blood Group"
+            size="small"
+            value={values.bloodgroup}
+            option={employeeService.booldGroup()}
+            onChange={handleInputchange}
           />
         </Grid>
         <Grid item xs={6} md={6}>
@@ -184,29 +186,55 @@ const EmployeeForm = () => {
             onChange={handleInputchange}
           />
           <Controls.SearchedListLimit
-          name="movieList"
-          color="primary"
-          label="Movie List"
-          size="small"
-          limit="3"
-          value={values.movieList}
-          option={employeeService.top100Films()}
-          onChange={handleInputchange}
+            name="movieList"
+            color="primary"
+            label="Movie List"
+            size="small"
+            limit="3"
+            value={values.movieList}
+            option={employeeService.top100Films()}
+            onChange={handleInputchange}
           />
-          <BtnControls.PrimaryButton
+          {/* <BtnControls.PrimaryButton
             variant="contained"
             size="small"
             text="Submit Form"
             type="submit"
             direction="row"
-          />
-          <BtnControls.FloattingButton
-            variant="extended"
-            size="small"
-            text="Clear "
-            icon={<CachedIcon sx={{ mr: 1 }}/>}
-            onClick={clearForm}
-          />
+          /> */}
+        </Grid>
+        <Grid xs={12} md={12}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              "& > :not(style)": {
+                m: 0.5,
+                width: 100,
+              },
+              justifyContent:'center',
+              boxShadow:"2",
+              mt:1,
+              p: 1,
+              // border: '1px dashed grey'
+            }}
+          >
+            <BtnControls.FloattingButton
+              variant="extended"
+              size="small"
+              text="Submit "
+              color="primary"
+              icon={<SaveIcon sx={{ mr: 1 }} />}
+              type="submit"
+            />
+            <BtnControls.FloattingButton
+              variant="extended"
+              size="small"
+              text="Clear "
+              icon={<CachedIcon sx={{ mr: 1 }} />}
+              onClick={clearForm}
+            />
+          </Box>
         </Grid>
       </Grid>
     </Form>

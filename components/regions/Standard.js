@@ -7,17 +7,15 @@ import Header from "../others/uiTools/Header";
 const theme = createTheme();
 
 const MuiPaper = styled(Paper)({
-  padding:theme.spacing(2),
-  marginBottom:theme.spacing(2)
-})
+  padding: theme.spacing(2),
+  marginBottom: theme.spacing(2),
+});
 
 const Standard = (props) => {
-  const {title} = props
+  const { title, headerHidden } = props;
   return (
-    <MuiPaper elevation={3} >
-      <Header>
-        {title}
-      </Header>
+    <MuiPaper variant="outlined" elevation={0}>
+      {headerHidden == "Yes" ? "":(<Header>{title}</Header>)}
       {props.children}
     </MuiPaper>
   );

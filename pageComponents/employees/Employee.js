@@ -7,12 +7,12 @@ import Standard from "../../components/regions/Standard";
 const Employee = () => {
   return (
     <>
-      <PageHeader
+      {/* <PageHeader
         title="Universal Header"
         subTitle="From Design With Validation"
         icon={<AccountBalanceIcon />}
-      />
-      <Standard title="Universal Region Header">
+      /> */}
+      <Standard title="Universal Region Header" headerHidden="No">
         <EmployeeForm />
       </Standard>
     </>

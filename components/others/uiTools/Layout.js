@@ -152,7 +152,7 @@ export default function MiniDrawer(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{backgroundColor:'#6941C6'}}>
       <Box sx={{alignContent:'flex-start'}}>
         <Toolbar>
           <IconButton
@@ -172,17 +172,17 @@ export default function MiniDrawer(props) {
           </Typography>
         </Toolbar>
         </Box>
-        <Box sx={{alignContent:'flex-end'}}>
+        {/* <Box sx={{alignContent:'flex-end'}}>
         <Chip
         avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
         label="Avatar"
         variant="outlined"
       />
-          </Box>
+          </Box> */}
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <Typography sx={{ textAlign: "center" }}>RUT</Typography>
+          <Typography >API-MT</Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
