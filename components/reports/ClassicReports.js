@@ -1,9 +1,14 @@
+import { Paper, TableContainer } from '@mui/material'
 import React from 'react'
 
-const ClassicReports = () => {
-  return (
-    <div>ClassicReports</div>
-  )
-}
+export default function classicReports(records, headCells) {
 
-export default ClassicReports
+  const TblContainer = props =>(
+    <TableContainer component={Paper}>
+      {props.children}
+    </TableContainer>
+  )
+  return {
+    TblContainer
+  }
+}

@@ -133,8 +133,10 @@ export function generateEmployeeId() {
 }
 
 export function getAllEmployees() {
-  if (localStorage.getItem(KEYS.employees) == null) {
-    localStorage.setItem(KEYS.employees, JSON.stringify([]));
-  }
-  return JSON.parse(localStorage.getItem(KEYS.employees));
+  const data = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("employees")) : null;
+  return data;
+  // if (localStorage.getItem(KEYS.employees) == null) {
+  //   localStorage.setItem(KEYS.employees, JSON.stringify([]));
+  // }
+  // return JSON.parse(localStorage.getItem(KEYS.employees));
 }
